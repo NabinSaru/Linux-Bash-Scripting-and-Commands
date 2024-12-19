@@ -58,3 +58,39 @@ All available options for the ls commands apart from `ls`
 sudo dd if=/dev/sda5 conv=sync,noerror bs=64k | gzip -c > /tmp/sda5.img.gz # creates a backup for the sda5 disk and store it on tmp folder
 gunzip -c /tmp/sda5.img.gz | sudo dd of=/dev/sda5 # restore the backup into specified disk
 ```
+
+## Swap memory usage
+
+> To check the swap usage `free -h`
+> To disable swap `sudo swapoff -a` or `sudo swapoff <disk_name>`
+> To enable swap `sudo swapon <disk_name>`
+
+## Mount disk or device
+
+`sudo mount -t <type> <disk/device> /mnt`
+where type can be iso9660, ntfs, ext64, fat32
+
+`sudo umount -f /mnt`
+
+## Run Level
+
+Run level is preset os in the linux os that defines what services and programs can run after the boot.
+
+### All available run levels:
+
+- Runlevel 0: Shuts down the system in an orderly manner
+- Runlevel 1: Single user mode
+- Runlevel 2: Single user mode with networking
+- Runlevel 3: Multi-user mode in text mode
+- Runlevel 5: Multi-user mode in X Windows
+- Runlevel 6: Reboots the system
+
+### Check current run level
+
+`sudo runlevel`
+`sudo who -r`
+`cat /etc/.init.state`
+
+### To change run level
+
+`sudo init <lvl_number>`
